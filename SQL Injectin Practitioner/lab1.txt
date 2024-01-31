@@ -1,0 +1,19 @@
+Description of Lab: SQL injection attack, querying the database type and version on Oracle
+
+Imagine you have a website with a login form where users enter their names and passwords. This information is then sent to a database to check if the user exists.
+
+Now, let's say there's a vulnerability on this website that allows someone to insert their "malicious" code into the database query. Suppose there's a field for the username, and we input the following string:
+
+code '+UNION+SELECT+BANNER,+NULL+FROM+v$version-- 
+
+Now, let's break down what's happening:
+
+' - This is just a quotation mark that closes the input string. We insert it to avoid breaking the original query.
+
+UNION - This is an SQL keyword that instructs the database to combine the results of two queries.
+
+SELECT BANNER, NULL FROM v$version - This is a legitimate SQL query attempting to retrieve information about the version of the Oracle database from the system table v$version.
+
+-- - This is a special symbol in SQL that tells the database to ignore everything after it. It's used to prevent errors in the query.
+
+So, this "malicious" code is attempting to combine the original query with another query that retrieves information about the database version. If the website is vulnerable, an attacker could gain additional information about the database that wasn't meant to be publicly accessible.
