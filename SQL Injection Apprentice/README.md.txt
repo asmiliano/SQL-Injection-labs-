@@ -1,0 +1,1 @@
+SQL injection is a type of security vulnerability that occurs when an attacker is able to manipulate or inject malicious SQL (Structured Query Language) code into a database query. This can happen when user input is not properly validated or sanitized before being included in a SQL statement.

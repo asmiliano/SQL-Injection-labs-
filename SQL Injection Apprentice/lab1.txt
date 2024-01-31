@@ -1,0 +1,9 @@
+In this task we should find unreleased products using SQL request.Solution will be the next:
+When lab-website is opened, choose one of criteria(inspite of description) and we'll get list of pdoructs. As usually it's 3. Then 'click' to the URL "https://0af800020407b75280503f6f003c00b7.web-security-academy.net/filter?category=Food+%26+Drink", first of all try to delete "Food+%26+Drink" and paste " ' ", where we get "Internal Server Error" of course it's not right. But URL where edited, like:
+"https://0af800020407b75280503f6f003c00b7.web-security-academy.net/filter?category=%27". Near with "%27" we add "+OR+1=1--" when:
+
+'OR': Adds a condition to the existing query.
+'1=1': A true condition, which ensures that the injected condition is always true.
+'--:' Represents a comment in SQL, effectively commenting out the rest of the original query, preventing syntax errors.
+
+In the end we get additional(unreleased) products.

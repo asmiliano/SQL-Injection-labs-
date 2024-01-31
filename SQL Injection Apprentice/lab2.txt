@@ -1,0 +1,21 @@
+To solve the lab, perform a SQL injection attack that logs in to the application as the "administrator" user.
+
+Solution:
+Use Burp Suite to intercept and modify the login request.
+Modify the username parameter, giving it the value: administrator'--
+
+when we open the website we can find two buttons "HOME|MY ACCOUNT" 
+
+Login
+
+User
+[------]
+
+Password
+[------]
+
+As well as they give us hint we'll do the next steps. For the place User type "administrator" + "'--"
+
+Single Quote ('): Injected to manipulate SQL queries by closing a string literal prematurely.
+
+Double Hyphen (--): Used to comment out the rest of the SQL query, preventing errors and allowing attackers to inject malicious code without affecting the original query structure.
